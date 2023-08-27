@@ -1,0 +1,4 @@
+# Ignore everything by default
+*
+# Allow a specific directory and its contents
+!/code
