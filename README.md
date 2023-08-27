@@ -2,9 +2,9 @@
 docker stylized assistant, with twitch and discord use etc etc
 ![Alt text](assets/images/image.png)
 
-docker build -t jabl3s_bot .
-docker tag jabl3s_bot:latest jabl3s/jabl3s_bot:1.0
-docker push jabl3s/jabl3s_bot:1.0
+docker build -t jabl3s_bot:1.0 ./code
+docker tag jabl3s_bot:1.0 jabl3s/jabl3s_bot:latest
+docker push jabl3s/jabl3s_bot:latest
 docker run -it jabl3s/jabl3s_bot:latest
 
 ---IN DEV RUN:::---
