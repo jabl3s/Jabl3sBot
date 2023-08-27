@@ -1,7 +1,2 @@
-###
-.dockerignore
-###
-docker-compose.yml
-code/sub-code/secrets.py
+#Hide those user specific envs!
 code/.env
-###

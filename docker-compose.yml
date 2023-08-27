@@ -1,0 +1,11 @@
+version: '3'
+services:
+  jabl3s_bot_service:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Path to your Dockerfile if it's not in the same directory as your source code
+    image: jabl3s_bot:latest
+    # command: ["python", "bot.py"]  # Adjust this to run your Python script
+    #environment: supplied an env file for now
+      #- SECRET_KEY=${SECRET_KEY}
+      #- DATABASE_URL=${DATABASE_URL}
