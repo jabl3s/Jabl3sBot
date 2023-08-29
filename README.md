@@ -7,8 +7,8 @@ Consider installing harbor for self hosted repo benifits
 ---IN DEV RUN:::---  
 
 docker-compose up -d --build  
-docker-compose logs -f jabl3s_code_twitch  
-docker-compose logs -f jabl3s_code_discord  
+docker-compose logs -f code_twitch_service  
+docker-compose logs -f code_discord_service  
 docker-compose down -v  
 
 --- CLOSE ---  
