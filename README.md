@@ -5,8 +5,16 @@ docker stylized assistant, with twitch and discord use etc etc
 Consider installing harbor for self hosted repo benifits  
   
   
----PI specific:::---  
+---PI specific:::---  Modify the eeprom config to have the following:::  
   
+[all]
+BOOT_UART=0
+WAKE_ON_GPIO=1
+POWER_OFF_ON_HALT=0
+BOOT_ORDER=0xf14  
+
+### (((SEE image five all this below doesnt fix usb boot, just goes into sd card reguardless)))
+
 sudo rpi-eeprom-update -a  
 sudo nano /etc/default/rpi-eeprom-config OR sudo rpi-eeprom-config --edit
 BOOT_ORDER=0xf14  
@@ -34,3 +42,5 @@ Flush python output so that the compose logs can see wassup...
 ![Alt text](assets/images/image-2.png)
   
 ![Alt text](assets/images/image-4.png)  ![Alt text](assets/images/image-3.png)
+
+![Alt text](assets/images/image-5.png)
