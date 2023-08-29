@@ -10,7 +10,8 @@ docker run -it jabl3s/jabl3s_bot:latest
 ---IN DEV RUN:::---  
 
 docker-compose up -d --build  
-docker-compose logs -f jabl3s_bot_service  
+docker-compose logs -f jabl3s_code_twitch  
+docker-compose logs -f jabl3s_code_discord  
 docker-compose down -v  
 
 --- CLOSE ---  
