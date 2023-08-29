@@ -9,8 +9,6 @@ services:
     #command: ["python", "Main.py"]  # Adjust this to run your Python script
     environment:
       - BOT_TWITCH_TOKEN=${BOT_TWITCH_TOKEN}
-    env_file:
-      - code-twitch.env
   
   code_discord_service:
     build:
@@ -19,5 +17,3 @@ services:
     image: jabl3s_code_discord:latest
     environment:
       - BOT_DISCORD_TOKEN=${BOT_DISCORD_TOKEN}
-    env_file:
-      - code-discord.env

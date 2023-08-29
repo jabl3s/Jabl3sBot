@@ -16,5 +16,3 @@ Flush python output so that the compose logs can see wassup...
 ![Alt text](assets/images/image-1.png)  
   
 ![Alt text](assets/images/image-2.png)
-
-  
