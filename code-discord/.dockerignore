@@ -2,3 +2,4 @@
 *
 # Allow a specific directory and its contents
 !/code
+!requirements.txt

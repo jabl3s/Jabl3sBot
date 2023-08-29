@@ -3,7 +3,7 @@ services:
   
   code_twitch_service:
     build:
-      context: ./code_twitch
+      context: code-twitch/
       dockerfile: Dockerfile  # Path to your Dockerfile if it's not in the same directory as your source code
     image: jabl3s_code_twitch:latest
     #command: ["python", "Main.py"]  # Adjust this to run your Python script
@@ -14,7 +14,7 @@ services:
   
   code_discord_service:
     build:
-      context: ./code_discord
+      context: code-discord/
       dockerfile: Dockerfile 
     image: jabl3s_code_discord:latest
     environment:
