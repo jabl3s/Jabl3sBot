@@ -15,7 +15,7 @@ docker-compose logs -f jabl3s_code_discord
 docker-compose down -v  
 
 --- CLOSE ---  
-Flush python output so that the compose logs can see wassup...
+Flush python output so that the compose logs can see wassup...  
 ![Alt text](assets/images/image-1.png)  
 
   
