@@ -1,11 +1,23 @@
 version: '3'
 services:
-  jabl3s_bot_service:
+  
+  code_twitch_service:
     build:
-      context: .
+      context: ./code_twitch
       dockerfile: Dockerfile  # Path to your Dockerfile if it's not in the same directory as your source code
-    image: jabl3s_bot:latest
-    # command: ["python", "bot.py"]  # Adjust this to run your Python script
-    #environment: supplied an env file for now
-      #- SECRET_KEY=${SECRET_KEY}
-      #- DATABASE_URL=${DATABASE_URL}
+    image: jabl3s_code_twitch:latest
+    #command: ["python", "Main.py"]  # Adjust this to run your Python script
+    environment:
+      - BOT_TWITCH_TOKEN=${BOT_TWITCH_TOKEN}
+    env_file:
+      - code-twitch.env
+  
+  code_discord_service:
+    build:
+      context: ./code_discord
+      dockerfile: Dockerfile 
+    image: jabl3s_code_discord:latest
+    environment:
+      - BOT_DISCORD_TOKEN=${BOT_DISCORD_TOKEN}
+    env_file:
+      - code-discord.env

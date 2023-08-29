@@ -1,2 +1,2 @@
 #Hide those user specific envs!
-code/.env
+**/*.env
