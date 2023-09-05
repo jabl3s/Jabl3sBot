@@ -2,7 +2,7 @@ from twitchio.ext import commands
 
 class BotTwitch(commands.Bot):
     def __init__(self, jtokenedit, jchannelsedit, jstore):
-        self.__jstore=jstore
+        self.jstore=jstore
         super().__init__(token=jtokenedit, prefix='?', initial_channels=jchannelsedit)
 
     async def event_ready(self):
@@ -13,7 +13,7 @@ class BotTwitch(commands.Bot):
         if message.echo:
             return
         if message.author.name.lower() != self.bot_account_name.lower():
-            self.__jstore.__setTwitch(message.content)
+            self.jstore.setTwitch(message.content)
 
 
 #ws=self._ws            

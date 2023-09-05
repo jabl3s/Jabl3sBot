@@ -1,16 +1,16 @@
 class BotJstore():
     def __init__(self):
-        self.__store={
+        self.store={
             "twitch":"twitch",
             "discord":"discord"
         }
-        self.__keys=self.__store.keys()
-        self.__values=self.__store.values()
-    def __getStoreKeys(self):
-        return self.__keys
-    def __getStoreValues(self):
-        return self.__values
-    def __setDiscord(self, setstr):
-        self.__store["discord"] = setstr
-    def __setTwitch(self, setstr):
-        self.__store["twitch"] = setstr
+        self.keys=list(self.store.keys())
+        self.values=list(self.store.values())
+    def getStoreKeys(self):
+        return self.keys
+    def getStoreValues(self):
+        return self.values
+    def setDiscord(self, setstr):
+        self.store["discord"] = setstr
+    def setTwitch(self, setstr):
+        self.store["twitch"] = setstr
