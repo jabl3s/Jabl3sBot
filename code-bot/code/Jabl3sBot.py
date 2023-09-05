@@ -34,10 +34,12 @@ class Jabl3sBot:
         self.discord=getattr(self.subbots["BotDiscord"],"BotDiscord")(self.jstore)
         self.thread_discord=threading.Thread(target=self.discord.run, args=(discord_param_queue))
         self.discord_param_queue.put(BOT_DISCORD_TOKEN)
+    
     def main(self):
         self.thread_twitch.start()
         self.thread_discord.start()
         self.thread_run.start()
+    
     def __run(self):
             while True:
                 time.sleep(2)
