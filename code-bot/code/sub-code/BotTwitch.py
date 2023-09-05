@@ -1,22 +1,11 @@
 import sys
 from twitchio.ext import commands
-from decouple import config
-import pika
-import threading
 
 class BotTwitch(commands.Bot):
     def __init__(self, jtokenedit, jchannelsedit):
         # Initialise our Bot with our access token, prefix and a list of channels to join on boot...
         # prefix can be a callable, which returns a list of strings or a string...
         # initial_channels can also be a callable which returns a list of strings...
-        connection = pika.BlockingConnection(pika.ConnectionParameters(config('RABBIT_MQ_URL')))
-        self.channel = connection.channel()
-        self.channel.queue_declare(queue='Twitch')
-        self.channel.queue_declare(queue='Discord')
-        self.bot_account_name = "jabl3s_ttv_bot"
-        self.channel.basic_consume(queue='Discord',
-                      auto_ack=True,
-                      on_message_callback=self.send_message)
         super().__init__(token=jtokenedit, prefix='?', initial_channels=jchannelsedit)
 
     async def event_ready(self):
@@ -30,16 +19,12 @@ class BotTwitch(commands.Bot):
         ws = self._ws
         await ws.send_privmsg('jabl3s_ttv', body)
 
-
     async def event_message(self, message):
         # Messages with echo set to True are messages sent by the bot...
         # For now we just want to ignore them...
         if message.echo:
             return
         temp=message.author.name+" - "+message.content
-        self.channel.basic_publish(exchange='',
-            routing_key='Discord',
-            body=temp)
         print(" Twitch: ",temp)
         sys.stdout.flush()
     
