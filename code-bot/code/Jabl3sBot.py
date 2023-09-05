@@ -9,44 +9,44 @@ import queue
 
 class Jabl3sBot:
     def __init__(self):
-        self.__thread_run=threading.Thread(target=self.__run)
-        self.__subbots={}
-        self.__module_folder = "sub-code"
-        self.__module_files = [
+        self.thread_run=threading.Thread(target=self.__run)
+        self.subbots={}
+        self.module_folder = "sub-code"
+        self.module_files = [
             f.replace(".py", "")
-            for f in os.listdir(self.__module_folder)
+            for f in os.listdir(self.module_folder)
             if f.endswith(".py") and not f.startswith("__init__")
         ]
-        for module_name in self.__module_files:
-            self.__subbots[module_name] = importlib.import_module(f"{self.__module_folder}.{module_name}")
+        for module_name in self.module_files:
+            self.subbots[module_name] = importlib.import_module(f"{self.module_folder}.{module_name}")
         
         #JSTORE
-        self.__jstore=getattr(self.__subbots["BotJstore"],"BotJstore")
+        self.jstore=getattr(self.subbots["BotJstore"],"BotJstore")
         
         #TWITCH
-        self.__BOT_TWITCH_TOKEN = config('BOT_TWITCH_TOKEN')
-        self.__twitch=getattr(self.__subbots["BotTwitch"],"BotTwitch")(self.__BOT_TWITCH_TOKEN,['jabl3s_ttv'], self.__jstore)
-        self.__thread_twitch=threading.Thread(target=self.__twitch.run)
+        BOT_TWITCH_TOKEN = config('BOT_TWITCH_TOKEN')
+        self.twitch=getattr(self.subbots["BotTwitch"],"BotTwitch")(BOT_TWITCH_TOKEN,['jabl3s_ttv'], self.jstore)
+        self.thread_twitch=threading.Thread(target=self.twitch.run)
            
         #DISCORD   
-        self.__BOT_DISCORD_TOKEN = config('BOT_DISCORD_TOKEN')
-        self.__discord_param_queue = queue.Queue()
-        self.__discord=getattr(self.__subbots["BotDiscord"],"BotDiscord")(self.__jstore)
-        self.__thread_discord=threading.Thread(target=self.__discord.run, args=(self.__discord_param_queue,))
-        self.__discord_param_queue.put(self.__BOT_DISCORD_TOKEN)
+        BOT_DISCORD_TOKEN = config('BOT_DISCORD_TOKEN')
+        discord_param_queue = queue.Queue()
+        self.discord=getattr(self.subbots["BotDiscord"],"BotDiscord")(self.jstore)
+        self.thread_discord=threading.Thread(target=self.discord.run, args=(discord_param_queue))
+        self.discord_param_queue.put(BOT_DISCORD_TOKEN)
     def main(self):
-        self.__thread_twitch.start()
-        self.__thread_discord.start()
-        self.__thread_run.start()
+        self.thread_twitch.start()
+        self.thread_discord.start()
+        self.thread_run.start()
     def __run(self):
             while True:
                 time.sleep(2)
-                for j in range(0,len(self.__jstore.__getStoreKeys())):
-                    if self.__jstore.__getStoreKeys()[j]==self.__jstore.__getStoreValues()[j]:
+                for j in range(0,len(self.jstore.getStoreKeys())):
+                    if self.jstore.getStoreKeys()[j]==self.jstore.getStoreValues()[j]:
                         pass
                     else:
-                        print(self.__jstore.__getStoreValues()[j])
-                        self.__jstore.__getStoreValues()[j]=self.__jstore.__getStoreKeys()[j]
+                        print(self.jstore.getStoreValues()[j])
+                        self.jstore.getStoreValues()[j]=self.jstore.getStoreKeys()[j]
                         sys.stdout.flush()
                                 
 if __name__ == "__main__":
