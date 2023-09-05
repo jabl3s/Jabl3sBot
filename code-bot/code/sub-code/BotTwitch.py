@@ -14,11 +14,11 @@ class BotTwitch(commands.Bot):
         if message.echo:
             return
         if message.author.name.lower() != self.bot_account_name.lower():
-            ws=self._ws
             self.__jstore.__setTwitch(message.content)
-            if len(self.jstore>0):
-                await ws.send_privmsg('jabl3s_ttv',"jabl3s - "+self.jstore.discord[0])
-                self.jstore.discord.pop(0)
+
+#ws=self._ws            
+#if len(self.__jstore>0):
+#await ws.send_privmsg('jabl3s_ttv',"jabl3s - "+self.jstore.discord[0])
+#self.jstore.discord.pop(0)
             
-               
-        #sys.stdout.flush()
+#sys.stdout.flush()

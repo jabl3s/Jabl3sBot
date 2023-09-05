@@ -11,7 +11,6 @@ class BotDiscord(discord.Client):
         else:
             return
 
-
 intents = discord.Intents.default()
 intents.message_content = True
 BotDiscord = BotDiscord(intents=intents)
