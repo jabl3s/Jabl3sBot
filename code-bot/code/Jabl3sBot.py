@@ -34,7 +34,7 @@ class Jabl3sBot:
         self.__discord=getattr(self.__subbots["BotDiscord"],"BotDiscord")(self.__jstore)
         self.__thread_discord=threading.Thread(target=self.__discord.run, args=(self.__discord_param_queue,))
         self.__discord_param_queue.put(self.__BOT_DISCORD_TOKEN)
-    def __main(self):
+    def main(self):
         self.__thread_twitch.start()
         self.__thread_discord.start()
         self.__thread_run.start()
@@ -50,7 +50,7 @@ class Jabl3sBot:
                         sys.stdout.flush()
                                 
 if __name__ == "__main__":
-     Jabl3sBot().__main()
+     Jabl3sBot().main()
     
 
 
