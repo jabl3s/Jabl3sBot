@@ -1,9 +1,11 @@
-import importlib
+import sys
 import os
+import time
+import importlib
 from decouple import config
 import threading
 import queue
-import time
+
 
 class Jabl3sBot:
     def __init__(self):
@@ -45,8 +47,8 @@ class Jabl3sBot:
                     else:
                         print(self.__jstore.__getStoreValues()[j])
                         self.__jstore.__getStoreValues()[j]=self.__jstore.__getStoreKeys()[j]
-                        
-            
+                        sys.stdout.flush()
+                                
 if __name__ == "__main__":
      Jabl3sBot().__main()
     

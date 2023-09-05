@@ -1,4 +1,3 @@
-#import sys
 from twitchio.ext import commands
 
 class BotTwitch(commands.Bot):
@@ -16,8 +15,8 @@ class BotTwitch(commands.Bot):
         if message.author.name.lower() != self.bot_account_name.lower():
             self.__jstore.__setTwitch(message.content)
 
+
 #ws=self._ws            
 #if len(self.__jstore>0):
 #await ws.send_privmsg('jabl3s_ttv',"jabl3s - "+self.jstore.discord[0])
 #self.jstore.discord.pop(0)      
-#sys.stdout.flush()
