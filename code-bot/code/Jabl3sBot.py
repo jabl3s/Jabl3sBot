@@ -3,6 +3,7 @@ import os
 import time
 import importlib
 from decouple import config
+import asyncio
 import threading
 import queue
 
@@ -41,6 +42,8 @@ class Jabl3sBot:
         self.thread_run.start()
     
     def __run(self):
+            print("\nJabl3sBot thread running... \n")
+            sys.stdout.flush()
             while True:
                 time.sleep(2)
                 for j in range(0,len(self.jstore.keys)):
