@@ -21,7 +21,7 @@ class Jabl3sBot:
             self.subbots[module_name] = importlib.import_module(f"{self.module_folder}.{module_name}")
         
         #JSTORE
-        self.jstore=getattr(self.subbots["BotJstore"],"BotJstore")
+        self.jstore=getattr(self.subbots["BotJstore"],"BotJstore")()
         
         #TWITCH
         BOT_TWITCH_TOKEN = config('BOT_TWITCH_TOKEN')
