@@ -3,9 +3,9 @@ import discord
 class BotDiscord(discord.Client):
     def __init__(self,jstore):
         self.jstore=jstore
-        self.intents = discord.Intents.default()
-        self.intents.message_content = True
-        super().__init__(intents=self.intents)
+        intents = discord.Intents.default()
+        intents.message_content = True
+        super().__init__(intents=intents)
     async def on_ready(self):
         print('Logged on as', self.user)
     async def on_message(self, message):
