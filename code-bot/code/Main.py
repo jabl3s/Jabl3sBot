@@ -18,8 +18,9 @@ def main():
     # Dynamically import the modules
     for module_name in module_files:
         bot[module_name] = importlib.import_module(f"{module_folder}.{module_name}")
-    thread_twitch=threading.Thread(target=getattr(bot["BotTwitch"],"BotTwitch")(BOT_TWITCH_TOKEN,['jabl3s_ttv']).run())
-    thread_discord=threading.Thread(target=getattr(bot["BotDiscord"],"BotDiscord").run(BOT_DISCORD_TOKEN))
+    jstore=getattr(bot["BotJstore"],"BotJstore")
+    thread_twitch=threading.Thread(target=getattr(bot["BotTwitch"],"BotTwitch")(BOT_TWITCH_TOKEN,['jabl3s_ttv'],jstore).run())
+    thread_discord=threading.Thread(target=getattr(bot["BotDiscord"],"BotDiscord")(jstore).run(BOT_DISCORD_TOKEN))
     thread_twitch.start()
     thread_discord.start()
     
