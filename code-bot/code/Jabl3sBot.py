@@ -43,12 +43,12 @@ class Jabl3sBot:
     def __run(self):
             while True:
                 time.sleep(2)
-                for j in range(0,len(self.jstore.getStoreKeys())):
-                    if self.jstore.getStoreKeys()[j]==self.jstore.getStoreValues()[j]:
+                for j in range(0,len(self.jstore.keys)):
+                    if self.jstore.keys[j]==self.jstore.values[j]:
                         pass
                     else:
-                        print(self.jstore.getStoreValues()[j])
-                        self.jstore.getStoreValues()[j]=self.jstore.getStoreKeys()[j]
+                        print(self.jstore.values[j])
+                        self.jstore.values[j]=self.jstore.keys[j]
                         sys.stdout.flush()
                                 
 if __name__ == "__main__":
