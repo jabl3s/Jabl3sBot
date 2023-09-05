@@ -8,4 +8,4 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 WORKDIR /app/code
 # Run the bot script when the container starts
-CMD ["python", "-u", "Main.py"]
+CMD ["python", "-u", "Jabl3sBot.py"]
