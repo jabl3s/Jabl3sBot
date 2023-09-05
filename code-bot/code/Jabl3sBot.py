@@ -3,10 +3,11 @@ import os
 from decouple import config
 import threading
 import queue
+import time
 
 class Jabl3sBot:
     def __init__(self):
-        self.__thread_main=threading.Thread(target=self.__main)
+        self.__thread_run=threading.Thread(target=self.__run)
         self.__subbots={}
         self.__module_folder = "sub-code"
         self.__module_files = [
@@ -31,21 +32,23 @@ class Jabl3sBot:
         self.__discord=getattr(self.__subbots["BotDiscord"],"BotDiscord")(self.__jstore)
         self.__thread_discord=threading.Thread(target=self.__discord.run, args=(self.__discord_param_queue,))
         self.__discord_param_queue.put(self.__BOT_DISCORD_TOKEN)
-
-        #START
-        self.__thread_main.start() 
-    
     def __main(self):
         self.__thread_twitch.start()
         self.__thread_discord.start()
-        pass
-
-        
-    
-
-    
+        self.__thread_run.start()
+    def __run(self):
+            while True:
+                time.sleep(2)
+                for j in range(0,len(self.__jstore.__getStoreKeys())):
+                    if self.__jstore.__getStoreKeys()[j]==self.__jstore.__getStoreValues()[j]:
+                        pass
+                    else:
+                        print(self.__jstore.__getStoreValues()[j])
+                        self.__jstore.__getStoreValues()[j]=self.__jstore.__getStoreKeys()[j]
+                        
+            
 if __name__ == "__main__":
-    Jabl3sBot().__run()
+     Jabl3sBot().__main()
     
 
 
