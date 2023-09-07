@@ -1,7 +1,7 @@
 version: '3'
 services:
   
-  code_twitch_service:
+  twitch_service:
     build:
       context: code-twitch/
       dockerfile: Dockerfile  # Path to your Dockerfile if it's not in the same directory as your source code
@@ -10,7 +10,7 @@ services:
     environment:
       - BOT_TWITCH_TOKEN=${BOT_TWITCH_TOKEN}
   
-  code_discord_service:
+  discord_service:
     build:
       context: code-discord/
       dockerfile: Dockerfile 
@@ -18,7 +18,7 @@ services:
     environment:
       - BOT_DISCORD_TOKEN=${BOT_DISCORD_TOKEN}
   
-  rabbitmq:
+  rabbitmq_service:
     image: rabbitmq:3-management-alpine
     container_name: 'rabbitmq'
     ports:
