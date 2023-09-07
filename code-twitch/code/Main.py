@@ -2,10 +2,10 @@ import importlib
 import os
 from decouple import config
 
-# Read environment variables from the .env file
-BOT_TWITCH_TOKEN = config('BOT_TWITCH_TOKEN')
-bot={}
 def main():
+    # Read environment variables from the .env file
+    BOT_TWITCH_TOKEN = config('BOT_TWITCH_TOKEN')
+    bot={}
     # Specify the folder containing your modules
     module_folder = "sub-code"
     # Get a list of all Python files in the subfolder (excluding __init__.py)
