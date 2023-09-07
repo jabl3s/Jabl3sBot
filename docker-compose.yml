@@ -1,6 +1,11 @@
 version: '3'
 services:
+<<<<<<< HEAD
+  
+  twitch_service:
+=======
   jabl3s_bot_service:
+>>>>>>> main
     build:
       context: code-bot/
       dockerfile: Dockerfile  # Path to your Dockerfile if it's not in the same directory as your source code
@@ -8,4 +13,31 @@ services:
     #command: ["python", "Main.py"]  # Adjust this to run your Python script
     environment:
       - BOT_TWITCH_TOKEN=${BOT_TWITCH_TOKEN}
+<<<<<<< HEAD
+  
+  discord_service:
+    build:
+      context: code-discord/
+      dockerfile: Dockerfile 
+    image: jabl3s_code_discord:latest
+    environment:
       - BOT_DISCORD_TOKEN=${BOT_DISCORD_TOKEN}
+  
+  rabbitmq_service:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - rabbitmq_go_net
+
+networks:
+  rabbitmq_go_net:
+    driver: bridge
+=======
+      - BOT_DISCORD_TOKEN=${BOT_DISCORD_TOKEN}
+>>>>>>> main
