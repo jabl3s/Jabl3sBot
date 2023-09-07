@@ -1,12 +1,12 @@
 # Jabl3sBot  
-
 ---IN DEV RUN:::---  
 
 docker-compose up -d --build  
-docker-compose logs -f code_twitch_service  
-docker-compose logs -f code_discord_service  
+docker-compose logs -f service_discord    
+docker-compose logs -f service_twitch  
+docker-compose logs -f service_rabbitmq   
 docker-compose down -v  
-
+  
 --- CLOSE ---  
 Flush python output so that the compose logs can see wassup...  
 ![Alt text](assets/images/image-1.png)  
