@@ -1,7 +1,7 @@
 import discord
 from decouple import config
 import pika
-import threading
+# import threading
 
 class BotDiscord(discord.Client):
     def __init__(self):

@@ -7,7 +7,7 @@ def main():
     BOT_DISCORD_TOKEN = config('BOT_DISCORD_TOKEN')
     bot={}
     # Specify the folder containing your modules
-    module_folder = "sub-code"
+    ### module_folder = "sub-code"
     # Get a list of all Python files in the subfolder (excluding __init__.py)
     module_files = [
         f.replace(".py", "")
@@ -16,7 +16,7 @@ def main():
     ]
     # Dynamically import the modules
     for module_name in module_files:
-        bot[module_name] = importlib.import_module(f"{module_folder}.{module_name}")
+        bot[module_name] = importlib.import_module(f"{module_name}") ### {module_folder}.
 
     getattr(bot["BotDiscord"],"BotDiscord").run(BOT_DISCORD_TOKEN)
 

@@ -2,7 +2,7 @@ import sys
 from twitchio.ext import commands
 from decouple import config
 import pika
-import threading
+# import threading
 
 class BotTwitch(commands.Bot):
     def __init__(self, jtokenedit, jchannelsedit):
