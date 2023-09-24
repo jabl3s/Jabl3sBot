@@ -1,4 +1,4 @@
-version: '3'
+version: '3' #This docker-compose file is for dev test usage only, and will be omitted by kubernetes.  
 services:
   
   service_twitch:
