@@ -7,7 +7,7 @@ def main():
     BOT_TWITCH_TOKEN = config('BOT_TWITCH_TOKEN')
     bot={}
     # Specify the folder containing your modules
-    ### module_folder = ""
+    module_folder = ""
     # Get a list of all Python files in the subfolder (excluding __init__.py)
     module_files = [
         f.replace(".py", "")
